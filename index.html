@@ -46,7 +46,6 @@ article.text p{font:1.06rem/2.15 var(--font-read);margin:14px 0}
 .gap.over{background:var(--sel);outline:2px solid var(--ink)}
 .gap.ok{background:var(--ok-soft);border-bottom:2px solid var(--ok);color:var(--ok)}
 .gap.bad{background:var(--bad-soft);border-bottom:2px solid var(--bad);color:var(--bad)}
-.gap.sol{background:var(--surface-2);border-bottom:2px solid var(--muted)}
 .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
 .btn{font:inherit;font-weight:700;border:2px solid var(--brand);background:var(--brand);color:var(--brand-ink);border-radius:10px;padding:9px 16px;cursor:pointer}
 .btn.ghost{background:transparent;color:var(--brand)}
@@ -86,7 +85,6 @@ article.text p{font:1.06rem/2.15 var(--font-read);margin:14px 0}
   <div class="bar">
     <button class="btn" id="check" type="button">Prüfen</button>
     <button class="btn ghost" id="back" type="button" hidden>Falsche zurücklegen</button>
-    <button class="btn ghost" id="solve" type="button" hidden>Lösung anzeigen</button>
     <button class="btn ghost" id="reset" type="button">Neu starten</button>
   </div>
   <p class="msg" id="msg" role="status" aria-live="polite"></p>
@@ -234,8 +232,7 @@ function loopScroll(){
 
 /* Prüfen */
 function syncButtons(){
-  var bad=mark.some(function(m){return m==='bad'});
-  $('#back').hidden=!bad; $('#solve').hidden=!(checked&&(bad||placed.some(function(k,i){return k!==GAPS[i].key})));
+  $('#back').hidden=!mark.some(function(m){return m==='bad'});
 }
 $('#check').addEventListener('click',function(){
   var ok=0, bad=0, open=0;
@@ -253,10 +250,6 @@ $('#check').addEventListener('click',function(){
 $('#back').addEventListener('click',function(){
   placed.forEach(function(k,i){if(mark[i]==='bad'){placed[i]=null;mark[i]=null}});
   $('#msg').textContent='Die falschen Begriffe sind zurück im Wortspeicher.'; syncButtons(); redraw();
-});
-$('#solve').addEventListener('click',function(){
-  GAPS.forEach(function(g,i){ if(placed[i]!==g.key){placed[i]=g.key;mark[i]='sol'} });
-  $('#msg').textContent='Die grau markierten Lücken zeigen die Lösung.'; selected=null; syncButtons(); redraw();
 });
 $('#reset').addEventListener('click',function(){
   placed=GAPS.map(function(){return null}); mark=GAPS.map(function(){return null}); selected=null; checked=false;
