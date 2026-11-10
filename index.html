@@ -52,7 +52,12 @@ article.text p{font:1.06rem/2.15 var(--font-read);margin:14px 0}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 .msg{font-weight:700;margin:8px 0}
 .ghostchip{position:fixed;z-index:50;pointer-events:none;transform:translate(-50%,-120%);box-shadow:0 6px 18px rgba(0,0,0,.3)}
-.foot{padding:6px 0 40px;color:var(--muted);font-size:.85rem}
+h2.task{font-size:1.15rem;margin:22px 0 4px}
+.lbl{display:block;font-weight:700;margin:0 0 4px}
+.ta{width:100%;min-height:220px;font:1rem/1.55 var(--font-ui);color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:10px 12px;resize:vertical}
+.ta:focus{outline:3px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+.save{margin:6px 0 0;font-size:.85rem;color:var(--muted)}
+.foot{padding:6px 16px 40px;color:var(--muted);font-size:.85rem}
 @media (max-width:520px){#chips{max-height:30vh}.chip{font-size:.88rem;padding:3px 10px}h1{font-size:1.4rem}article.text{padding:2px 14px 10px}article.text p{font-size:1rem;line-height:2.1}.gap{min-width:5.4em}}
 </style>
 </head>
@@ -63,16 +68,19 @@ article.text p{font:1.06rem/2.15 var(--font-read);margin:14px 0}
 </header>
 <main class="wrap">
   <section class="card">
-    <h2>Deine Aufgabe</h2>
-    <p style="margin:0">Setze die Begriffe aus dem Wortspeicher in die passenden Lücken der Charakterisierung. Jeder Begriff steht so oft im Speicher, wie du ihn brauchst.</p>
+    <h2>Deine Aufgaben</h2>
+    <p style="margin:0 0 6px"><b>Aufgabe 1: Lückentext.</b> Setze die Begriffe aus dem Wortspeicher in die passenden Lücken der Charakterisierung. Jeder Begriff steht so oft im Speicher, wie du ihn brauchst.</p>
     <ul>
       <li><b>Am PC:</b> Ziehe den Begriff in die Lücke.</li>
       <li><b>Am Handy oder Tablet:</b> Tippe erst den Begriff an, dann die Lücke.</li>
       <li><b>Ändern:</b> Tippe eine gefüllte Lücke an. Der Begriff geht zurück in den Speicher.</li>
       <li>Klicke zum Schluss auf »Prüfen«.</li>
     </ul>
+    <p style="margin:10px 0 0"><b>Aufgabe 2: Eigene Notizen.</b> Unter dem Lückentext findest du ein Notizfeld. Vergleiche den Text mit deiner Charakterisierung aus der Hausaufgabe und notiere, was du ergänzen möchtest.</p>
   </section>
 
+  <section id="task1">
+  <h2 class="task">Aufgabe 1 · Lückentext</h2>
   <div class="bank" id="bankWrap">
     <div class="bank-in">
       <div class="bank-h"><b>Wortspeicher</b><span id="count" role="status"></span></div>
@@ -88,6 +96,15 @@ article.text p{font:1.06rem/2.15 var(--font-read);margin:14px 0}
     <button class="btn ghost" id="reset" type="button">Neu starten</button>
   </div>
   <p class="msg" id="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="card notes" aria-labelledby="h-notes">
+    <h2 class="task" id="h-notes" style="margin-top:0">Aufgabe 2 · Meine Notizen</h2>
+    <p style="margin:0 0 8px">Welche Aspekte hast du in deiner Charakterisierung von Rachid <b>nicht</b> angesprochen oder nicht gefunden? Notiere sie in Stichworten. So kannst du deine Ausarbeitung danach überprüfen und verbessern.</p>
+    <label for="notes" class="lbl">Das fehlt (noch) in meiner Charakterisierung:</label>
+    <textarea id="notes" class="ta" rows="10" placeholder="z. B. Mir ist nicht aufgefallen, dass …"></textarea>
+    <p class="save" id="saveInfo" role="status" aria-live="polite">Dein Text wird automatisch auf diesem Gerät gespeichert. »Neu starten« in Aufgabe 1 löscht ihn nicht.</p>
+  </section>
 </main>
 <footer class="wrap foot"><p>Deine Eingaben bleiben nur auf diesem Gerät.</p></footer>
 
@@ -256,6 +273,16 @@ $('#reset').addEventListener('click',function(){
   $('#msg').textContent=''; syncButtons(); redraw(); window.scrollTo(0,0);
 });
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){selected=null;drawGaps();drawChips()}});
+/* Aufgabe 2: Notizfeld (unabhängig vom Lückentext, wird nie zurückgesetzt) */
+(function(){
+  var NK='rachid-notizen-v1', ta=$('#notes'), tm;
+  try{ta.value=localStorage.getItem(NK)||''}catch(e){}
+  ta.addEventListener('input',function(){
+    clearTimeout(tm);
+    tm=setTimeout(function(){try{localStorage.setItem(NK,ta.value)}catch(e){}},300);
+  });
+  window.addEventListener('pagehide',function(){try{localStorage.setItem(NK,ta.value)}catch(e){}});
+})();
 redraw();
 })();
 </script>
