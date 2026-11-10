@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charakterisierung Rachid</title>
+<style>
+:root{
+  --bg:#F2F5FA; --surface:#FFFFFF; --surface-2:#E8EDF6; --ink:#16203A; --muted:#556079; --line:#C9D2E4;
+  --brand:#2447A8; --brand-ink:#FFFFFF; --brand-soft:#E2E9FA;
+  --ok:#17663A; --ok-soft:#DDF3E6; --bad:#A3261F; --bad-soft:#FBE3E0; --sel:#FFD24D;
+  --font-ui:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-read:Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1524; --surface:#182036; --surface-2:#222C47; --ink:#E8EDFA; --muted:#A5B0CC; --line:#34415F;
+  --brand:#8FB0FF; --brand-ink:#0F1524; --brand-soft:#243157;
+  --ok:#7FD6A0; --ok-soft:#173A29; --bad:#FF9C94; --bad-soft:#44201E; --sel:#FFD24D;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.55 var(--font-ui)}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+header.top{padding:22px 16px 8px}
+.eyebrow{margin:0;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+h1{margin:2px 0 0;font-size:1.7rem;line-height:1.2}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.card h2{margin:0 0 6px;font-size:1.05rem}
+.card ul{margin:6px 0 0;padding-left:20px}.card li{margin-bottom:3px}
+.bank{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 10px}
+.bank-in{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bank-h{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.bank-h b{color:var(--ink)}
+#chips{display:flex;flex-wrap:wrap;gap:6px;max-height:34vh;overflow-y:auto}
+.chip{font:inherit;font-weight:600;font-size:.95rem;border:2px solid var(--brand);background:var(--brand-soft);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.chip[aria-pressed="true"]{background:var(--sel);border-color:var(--ink)}
+.chip:focus-visible,.gap:focus-visible,.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.done-msg{color:var(--muted);font-size:.9rem;margin:2px 2px}
+article.text{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 20px 14px;margin:6px 0 14px}
+article.text p{font:1.06rem/2.15 var(--font-read);margin:14px 0}
+.gap{font:inherit;font-weight:600;display:inline-block;min-width:6.4em;padding:0 8px;margin:0 2px;border:0;border-bottom:2px dashed var(--brand);background:var(--brand-soft);color:var(--ink);border-radius:6px;cursor:pointer;text-align:center;line-height:1.7;vertical-align:baseline}
+.gap{scroll-margin-top:42vh;scroll-margin-bottom:20vh}
+.gap.empty{color:transparent}
+.gap.filled{border-bottom-style:solid}
+.gap.armed{background:var(--sel);border-bottom-color:var(--ink)}
+.gap.over{background:var(--sel);outline:2px solid var(--ink)}
+.gap.ok{background:var(--ok-soft);border-bottom:2px solid var(--ok);color:var(--ok)}
+.gap.bad{background:var(--bad-soft);border-bottom:2px solid var(--bad);color:var(--bad)}
+.gap.sol{background:var(--surface-2);border-bottom:2px solid var(--muted)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.btn{font:inherit;font-weight:700;border:2px solid var(--brand);background:var(--brand);color:var(--brand-ink);border-radius:10px;padding:9px 16px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.msg{font-weight:700;margin:8px 0}
+.ghostchip{position:fixed;z-index:50;pointer-events:none;transform:translate(-50%,-120%);box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.foot{padding:6px 0 40px;color:var(--muted);font-size:.85rem}
+@media (max-width:520px){#chips{max-height:30vh}.chip{font-size:.88rem;padding:3px 10px}h1{font-size:1.4rem}article.text{padding:2px 14px 10px}article.text p{font-size:1rem;line-height:2.1}.gap{min-width:5.4em}}
+</style>
+</head>
+<body>
+<header class="top wrap">
+  <p class="eyebrow">Deutsch · Lückentext</p>
+  <h1>Charakterisierung: Rachid</h1>
+</header>
+<main class="wrap">
+  <section class="card">
+    <h2>Deine Aufgabe</h2>
+    <p style="margin:0">Setze die Begriffe aus dem Wortspeicher in die passenden Lücken der Charakterisierung. Jeder Begriff steht so oft im Speicher, wie du ihn brauchst.</p>
+    <ul>
+      <li><b>Am PC:</b> Ziehe den Begriff in die Lücke.</li>
+      <li><b>Am Handy oder Tablet:</b> Tippe erst den Begriff an, dann die Lücke.</li>
+      <li><b>Ändern:</b> Tippe eine gefüllte Lücke an. Der Begriff geht zurück in den Speicher.</li>
+      <li>Klicke zum Schluss auf »Prüfen«.</li>
+    </ul>
+  </section>
+
+  <div class="bank" id="bankWrap">
+    <div class="bank-in">
+      <div class="bank-h"><b>Wortspeicher</b><span id="count" role="status"></span></div>
+      <div id="chips" role="group" aria-label="Wortspeicher"></div>
+    </div>
+  </div>
+
+  <article class="text" id="text"></article>
+
+  <div class="bar">
+    <button class="btn" id="check" type="button">Prüfen</button>
+    <button class="btn ghost" id="back" type="button" hidden>Falsche zurücklegen</button>
+    <button class="btn ghost" id="solve" type="button" hidden>Lösung anzeigen</button>
+    <button class="btn ghost" id="reset" type="button">Neu starten</button>
+  </div>
+  <p class="msg" id="msg" role="status" aria-live="polite"></p>
+</main>
+<footer class="wrap foot"><p>Deine Eingaben bleiben nur auf diesem Gerät.</p></footer>
+
+<script>
+(function(){
+'use strict';
+var PARAS=["Rachid ist eine {{nebenfigur}} des vorliegenden Romanauszugs, die im Verlauf der Handlung jedoch zunehmend an Kontur gewinnt. Zunächst wird er aus der Perspektive der Touristen Sanford und Preising vorgestellt. Im weiteren Verlauf erfährt der Leser durch die ausführliche Vorgeschichte deutlich mehr über seine Persönlichkeit und seine Lebensumstände.", "Auf der Ebene der {{direkt}}en Charakterisierung werden zunächst sein äußeres Erscheinungsbild und seine momentane Stimmung beschrieben. Rachid ist ein „schmalhüftiger Mann mit breiten Schultern“ (S. 41, Z. 10f.) und wird mit „bester Laune“ (S. 41, Z. 12f.) dargestellt. Sanford bezeichnet ihn als netten jungen Mann und beschreibt ihn zugleich als „extrem mitteilungsbedürftig“ (S. 40, Z. 20). Diese Einschätzung ist allerdings durch Sanfords eher abwertende Haltung geprägt. Die ausführliche Lebensgeschichte, die der Erzähler anschließend entfaltet, zeichnet ein wesentlich differenzierteres Bild der Figur.", "{{^indirekt}} lässt sich Rachids Hilfsbereitschaft und Fürsorglichkeit aus seinem {{verhalten}} während der Vorbereitung des Ausflugs erschließen. So packt er eine überdimensionierte Kühlbox mit Lebensmitteln und Wasser, um die Touristen zu versorgen (vgl. S. 41, Z. 15-19). Auch seine große körperliche Ausdauer wird nicht nur ausdrücklich hervorgehoben, sondern vor allem durch sein Handeln veranschaulicht: Nachdem Sanford und Preising ohne ihn losgefahren sind, läuft Rachid ihnen mehrere Kilometer durch die staubige Hitze der Wüste hinterher (vgl. S. 45, Z. 16-28). Dass er die Verfolgung zunächst als sportlichen Wettkampf begreift, lässt auf einen ausgeprägten Ehrgeiz und einen gewissen Stolz schließen. Seine Gedanken an den Großvater und die gemeinsame Zeit am Meer verdeutlichen zugleich, wie sehr ihn diese Erinnerungen bis in die Gegenwart prägen.", "{{^direkt}} wird Rachids schwierige Kindheit durch den Bericht über den Unfall auf einer Autobahn bei Toulouse benannt. Als Achtjähriger verliert er seine gesamte Familie und wird anschließend zu seinen Großeltern nach Sfax geschickt (vgl. S. 42, Z. 27-32). Dort wächst er unter schwierigen familiären Bedingungen auf. Besonders die Beziehung zur Großmutter wird als belastend beschrieben: „Für Rachid war es bei seiner Großmutter auch nicht lustig“ (S. 43, Z. 37f.). Im Gegensatz dazu entwickelt er zu seinem Großvater eine enge Bindung. Dieser bringt ihm das Schwimmen bei und wird zu einer zentralen Bezugsperson in seinem Leben (vgl. S. 44, Z. 1-36).", "Aus Rachids {{verhalten}} und seiner {{entwicklung}} lässt sich {{indirekt}} auf seine große Leistungsbereitschaft und Zielstrebigkeit schließen. Nachdem sein schwimmerisches Talent entdeckt worden ist, trainiert er viele Stunden und schafft es bereits mit sechzehn Jahren in die tunesische Nationalmannschaft. Er nimmt an zwei Olympischen Spielen teil und erzielt insbesondere im Langstreckenschwimmen beachtliche Erfolge (vgl. S. 44, Z. 19-33). Seine sportliche Laufbahn zeigt, dass er über Disziplin, Ausdauer und einen starken Willen verfügt. Zugleich wird deutlich, dass das Schwimmen für ihn weit mehr als eine sportliche Betätigung ist: Es verbindet ihn mit seinem Großvater und dem Meer, das seine Kindheit geprägt hat.", "{{^direkt}} wird benannt, dass Rachid nach dem Tod seines Großvaters dem Meer den Rücken kehrt. Er verkauft das kleine weiße Haus in Sfax und möchte das Meer nicht wiedersehen (vgl. S. 44, Z. 37f.). Seine spätere Tätigkeit als Bademeister im Hotel übernimmt er zunächst nur widerwillig. Dass er sich schließlich mit dem Leben in der Wüste arrangiert und nicht mehr fortziehen möchte, lässt sich als Versuch verstehen, einen neuen Lebensmittelpunkt zu finden. Die Hotelanlage mit ihrem Swimmingpool kann dabei jedoch keinen gleichwertigen Ersatz für das Meer darstellen (vgl. S. 45, Z. 1-13). Der Pool bleibt ein künstlicher, begrenzter Raum, während das offene Meer für Rachids Vergangenheit und die Beziehung zu seinem Großvater steht.", "Auch Rachids Verhältnis zu den anderen Figuren trägt zu seiner Charakterisierung bei. Saida vertraut ihm und besteht darauf, dass er Sanford und Preising auf ihrer Fahrt begleitet (vgl. S. 40, Z. 20-28). Damit wird ihm eine gewisse Verantwortung übertragen. Sanford hingegen begegnet ihm von oben herab und reduziert ihn auf seine Funktion als Bademeister. {{^indirekt}} zeigt sich Rachids Würde und sein Stolz gerade darin, dass er sich zunächst nicht einfach abschütteln lässt, sondern die Verfolgung als Herausforderung annimmt. Preising nimmt eine ambivalentere Rolle ein: Er begrüßt zwar, einen ortskundigen Begleiter mitzunehmen, beteiligt sich aber zunächst ebenfalls an der Abfahrt ohne Rachid. Später empfindet er deshalb ein schlechtes Gewissen (vgl. S. 41, Z. 37-39).", "Seine emotionale Verletzlichkeit wird schließlich eher {{indirekt}} als durch ausdrückliche Aussagen sichtbar. Während Rachid den Touristen zunächst mit großer Ausdauer hinterherläuft, wird er durch die Erinnerung an seine Großmutter zunehmend melancholisch und bricht die Verfolgung ab (vgl. S. 45, Z. 16-32). Die Beschimpfungen, mit denen er die Touristen verabschiedet, lassen erkennen, dass er sich durch ihr Verhalten gekränkt und respektlos behandelt fühlt.", "Die {{raum}} unterstützt diese Charakterisierung. Sfax, das Haus der Großeltern und der Hafen bilden den Hintergrund seiner Kindheit und der engen Beziehung zum Großvater. Das Meer und die gelbe Boje stehen dabei für seine sportliche Entwicklung und die gemeinsame Zeit mit dem Großvater. Die Wüste und die Hotelanlage markieren hingegen einen späteren Lebensabschnitt, in dem Rachid versucht, sich von seiner Vergangenheit zu lösen. Die staubige Hitze, durch die er den Touristen hinterherläuft, unterstreicht seine körperliche Leistungsfähigkeit. Zugleich lässt sich die Staubwolke, hinter der er für die anderen kaum sichtbar bleibt, als Bild für seine geringe Wertschätzung durch die Touristen deuten.", "Insgesamt wird Rachid als vielschichtige Figur gestaltet. Während er zunächst lediglich als freundlicher, etwas redseliger Bademeister erscheint, erschließt sich durch die {{direkt}}e Beschreibung seiner Lebensgeschichte und die {{indirekt}}e Charakterisierung seines Verhaltens eine komplexe Persönlichkeit. Er ist körperlich außerordentlich leistungsfähig, ehrgeizig und ausdauernd, zugleich aber auch verletzlich und von schmerzhaften Erinnerungen geprägt. Gerade der Gegensatz zwischen seiner äußeren Stärke und seiner inneren Verletzlichkeit macht ihn zu einer differenziert gezeichneten Figur."];
+var LAB={nebenfigur:'Nebenfigur',direkt:'direkt',indirekt:'indirekt',verhalten:'Verhalten',entwicklung:'Entwicklung',raum:'räumliche Gestaltung'};
+var ORDER=['direkt','indirekt','verhalten','entwicklung','nebenfigur','raum'];
+var KEY='rachid-lueckentext-v1';
+function $(s){return document.querySelector(s)}
+function el(t,a){var e=document.createElement(t);for(var k in (a||{})){if(k==='text')e.textContent=a[k];else e.setAttribute(k,a[k])}return e}
+
+/* Lücken aus dem Text aufbauen */
+var GAPS=[]; /* {key,cap} */
+var parsed=PARAS.map(function(p){
+  var parts=[],re=/\{\{(\^?)(\w+)\}\}/g,last=0,m;
+  while((m=re.exec(p))){ if(m.index>last)parts.push({t:p.slice(last,m.index)}); parts.push({g:GAPS.length}); GAPS.push({key:m[2],cap:!!m[1]}); last=re.lastIndex }
+  if(last<p.length)parts.push({t:p.slice(last)});
+  return parts;
+});
+var NEED={}; GAPS.forEach(function(g){NEED[g.key]=(NEED[g.key]||0)+1});
+var N=GAPS.length;
+
+/* Zustand */
+var placed=GAPS.map(function(){return null});   /* gewählter Begriff je Lücke */
+var mark=GAPS.map(function(){return null});     /* 'ok' | 'bad' | 'sol' | null */
+var selected=null, checked=false;
+try{var sv=JSON.parse(localStorage.getItem(KEY)||'null'); if(sv&&sv.length===N){sv.forEach(function(k,i){if(k&&NEED[k])placed[i]=k});}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(placed))}catch(e){}}
+function used(k){return placed.filter(function(x){return x===k}).length}
+function left(k){return NEED[k]-used(k)}
+function label(k,cap){var s=LAB[k];return cap?s.charAt(0).toUpperCase()+s.slice(1):s}
+
+/* Text zeichnen */
+var gapEls=[];
+var textBox=$('#text');
+parsed.forEach(function(parts){
+  var p=el('p');
+  parts.forEach(function(x){
+    if(x.t!==undefined){p.appendChild(document.createTextNode(x.t))}
+    else{
+      var i=x.g, b=el('button',{type:'button','class':'gap empty','data-i':i});
+      b.addEventListener('click',function(){onGap(i)});
+      gapEls[i]=b; p.appendChild(b);
+    }
+  });
+  textBox.appendChild(p);
+});
+
+function drawGaps(){
+  gapEls.forEach(function(b,i){
+    var k=placed[i], cls='gap';
+    if(k){cls+=' filled'; b.textContent=label(k,GAPS[i].cap)} else {cls+=' empty'; b.textContent=' '}
+    if(!k&&selected&&left(selected)>0)cls+=' armed';
+    if(mark[i])cls+=' '+mark[i];
+    b.className=cls;
+    b.setAttribute('aria-label','Lücke '+(i+1)+' von '+N+(k?': '+label(k,false)+(mark[i]==='ok'?', richtig':mark[i]==='bad'?', falsch':''):', leer'));
+  });
+}
+function drawChips(){
+  var box=$('#chips'); box.innerHTML='';
+  var total=0;
+  ORDER.forEach(function(k){
+    for(var n=0;n<left(k);n++){
+      total++;
+      var c=el('button',{type:'button','class':'chip','data-k':k,'aria-pressed':String(selected===k),text:label(k,false)});
+      bindChip(c,k); box.appendChild(c);
+    }
+  });
+  if(!total)box.appendChild(el('p',{'class':'done-msg',text:'Alle Begriffe sind verteilt. Klicke auf »Prüfen«.'}));
+  var filled=placed.filter(Boolean).length;
+  $('#count').textContent=filled+' von '+N+' Lücken gefüllt';
+  $('#check').disabled=filled<1;
+}
+function redraw(){drawGaps();drawChips();save()}
+
+/* Setzen */
+function place(i,k){
+  if(!k||(left(k)<=0&&placed[i]!==k))return;
+  placed[i]=k; mark[i]=null; $('#msg').textContent='';
+  if(left(k)<=0)selected=null;
+  checked=false; syncButtons(); redraw();
+}
+function onGap(i){
+  if(selected){place(i,selected);return}
+  if(placed[i]){placed[i]=null;mark[i]=null;$('#msg').textContent='';syncButtons();redraw()}
+}
+
+/* Wortspeicher: Antippen und Ziehen */
+var drag=null, justDragged=false, raf=0, lastY=0;
+function gapAt(x,y){
+  var e=document.elementFromPoint(x,y); return e&&e.closest?e.closest('.gap'):null;
+}
+function bindChip(c,k){
+  c.addEventListener('click',function(){
+    if(justDragged)return;
+    selected=(selected===k)?null:k; drawGaps(); drawChips();
+  });
+  c.addEventListener('pointerdown',function(ev){
+    if(ev.button>0)return;
+    drag={k:k,x:ev.clientX,y:ev.clientY,on:false,ghost:null,id:ev.pointerId,src:c};
+    try{c.setPointerCapture(ev.pointerId)}catch(e){}
+  });
+  c.addEventListener('pointermove',function(ev){
+    if(!drag||drag.id!==ev.pointerId)return;
+    var dx=ev.clientX-drag.x, dy=ev.clientY-drag.y;
+    if(!drag.on&&Math.hypot(dx,dy)>8){
+      drag.on=true;
+      var g=el('div',{'class':'chip ghostchip',text:label(k,false)}); document.body.appendChild(g); drag.ghost=g;
+      loopScroll();
+    }
+    if(drag.on){
+      drag.ghost.style.left=ev.clientX+'px'; drag.ghost.style.top=ev.clientY+'px'; lastY=ev.clientY;
+      gapEls.forEach(function(b){b.classList.remove('over')});
+      var t=gapAt(ev.clientX,ev.clientY); if(t)t.classList.add('over');
+    }
+  });
+  function end(ev,cancel){
+    if(!drag||drag.id!==ev.pointerId)return;
+    var d=drag; drag=null; cancelAnimationFrame(raf);
+    if(d.on){
+      justDragged=true; setTimeout(function(){justDragged=false},0);
+      if(d.ghost)d.ghost.remove();
+      gapEls.forEach(function(b){b.classList.remove('over')});
+      if(!cancel){var t=gapAt(ev.clientX,ev.clientY); if(t){selected=null;place(+t.getAttribute('data-i'),d.k)}}
+    }
+  }
+  c.addEventListener('pointerup',function(ev){end(ev,false)});
+  c.addEventListener('pointercancel',function(ev){end(ev,true)});
+}
+function loopScroll(){
+  cancelAnimationFrame(raf);
+  (function step(){
+    if(!drag||!drag.on)return;
+    var h=window.innerHeight, v=0;
+    if(lastY>h-70)v=14; else if(lastY>h*.45&&lastY>h-110)v=8;
+    if(v)window.scrollBy(0,v);
+    raf=requestAnimationFrame(step);
+  })();
+}
+
+/* Prüfen */
+function syncButtons(){
+  var bad=mark.some(function(m){return m==='bad'});
+  $('#back').hidden=!bad; $('#solve').hidden=!(checked&&(bad||placed.some(function(k,i){return k!==GAPS[i].key})));
+}
+$('#check').addEventListener('click',function(){
+  var ok=0, bad=0, open=0;
+  placed.forEach(function(k,i){
+    if(!k){mark[i]=null;open++;return}
+    if(k===GAPS[i].key){mark[i]='ok';ok++}else{mark[i]='bad';bad++}
+  });
+  checked=true; selected=null;
+  var t=ok+' von '+N+' Lücken richtig.';
+  if(bad)t+=' '+bad+' falsch (rot). Du darfst sie ändern.';
+  if(open)t+=' '+open+' noch leer.';
+  if(!bad&&!open)t='Alles richtig. Gut gemacht!';
+  $('#msg').textContent=t; syncButtons(); redraw();
+});
+$('#back').addEventListener('click',function(){
+  placed.forEach(function(k,i){if(mark[i]==='bad'){placed[i]=null;mark[i]=null}});
+  $('#msg').textContent='Die falschen Begriffe sind zurück im Wortspeicher.'; syncButtons(); redraw();
+});
+$('#solve').addEventListener('click',function(){
+  GAPS.forEach(function(g,i){ if(placed[i]!==g.key){placed[i]=g.key;mark[i]='sol'} });
+  $('#msg').textContent='Die grau markierten Lücken zeigen die Lösung.'; selected=null; syncButtons(); redraw();
+});
+$('#reset').addEventListener('click',function(){
+  placed=GAPS.map(function(){return null}); mark=GAPS.map(function(){return null}); selected=null; checked=false;
+  $('#msg').textContent=''; syncButtons(); redraw(); window.scrollTo(0,0);
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){selected=null;drawGaps();drawChips()}});
+redraw();
+})();
+</script>
+</body>
+</html>
